@@ -18,7 +18,7 @@ You can also clone the repository with [Git](https://git-scm.com/)...
 
 ## Usage
 
-There is only one function, namely the `parseArgv` function. It takes the `argv` array as its first argument and a map of abbreviations as second, optional argument. It returns a plain old JavaScript object with a list of commands and a map of options:
+There is only one function, namely the `parseArgv` function. It takes the `argv` array and an option map of abbreviations as its first and second arguments respectively. It returns a plain old JavaScript object with a list of commands and a map of options:
 
 ```js
 const argumentative = require('argumentative');

@@ -48,7 +48,7 @@ The return value is a plain old JavaScript object with several properties:
 
 * `commands` - The elements of the `argv` array that are not options, which are referred to here as commands.
 
-If you pass a map of abbreviations, any abbreviated option name in the `options` map will be replaced with its corresponding unabbreviated name.
+If you pass a map of abbreviations, any abbreviated option name in the `options` map will be replaced with its corresponding unabbreviated name. The value corresponding to the abbreviated option takes precedence over the unabbreviated one if both are present, however.
 
 ## Compiling from source
 

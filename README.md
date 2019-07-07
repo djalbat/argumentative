@@ -39,11 +39,11 @@ const { commands, options } = parseArgv(argv, abbreviations);
 
 The return value is a plain old JavaScript object with several properties:
 
-* `interpreterPath` - The first element of the `argv` array. This is fully qualified path of interpreter running the script, most likely a [Node](https://nodejs.org/en/) instance.
+* `interpreterPath` - The first element of the `argv` array. This is fully qualified path of interpreter running the script.
 
 * `filePath` - The second element of the `argv` array. This will be the fully qualified path of the script itself.
 
-* `args` - An array of the remaining arguments, possibly empty if no command line arguments have been explicitly passed.
+* `args` - An array of the remaining arguments, possibly empty if no command line arguments have been passed.
 
 * `options` - A map of option names to their values.
 

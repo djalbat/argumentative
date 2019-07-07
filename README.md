@@ -18,7 +18,7 @@ You can also clone the repository with [Git](https://git-scm.com/)...
 
 ## Usage
 
-There is only one function, namely the `parseArgv` function. It takes the `argv` array and an option map of abbreviations as its first and second arguments respectively.
+There is only one function, namely the `parseArgv()` function. It takes the `argv` array and an optional map of abbreviations as its first and second arguments, respectively:
 
 
 ```js
@@ -39,11 +39,11 @@ const { commands, options } = parseArgv(argv, abbreviations);
 
 The return value is a plain old JavaScript object with several properties:
 
-* `interpreterPath` - The first element of the `argv` array, which is fully qualified path of interpreter running the script, likely a Node instance.
+* `interpreterPath` - The first element of the `argv` array. This is fully qualified path of interpreter running the script, most likely a [Node](https://nodejs.org/en/) instance.
 
-* `filePath` - The second element of the `argv` array, which will be the fully qualified path of the script itself.
+* `filePath` - The second element of the `argv` array. This will be the fully qualified path of the script itself.
 
-* `args` - An array of the remaining arguments, possibly empty if no arguments are explicitly passed.
+* `args` - An array of the remaining arguments, possibly empty if no command line arguments have been explicitly passed.
 
 * `options` - A map of option names to their values.
 

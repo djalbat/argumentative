@@ -1,3 +1,3 @@
 'use strict';
 
-module.exports = require('./lib/fragmented');
+module.exports = require('./lib/argumentative');

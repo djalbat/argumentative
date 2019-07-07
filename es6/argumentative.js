@@ -68,11 +68,13 @@ function parseArgv(argv, abbreviations) {
 
   abbreviatedOptionNames.forEach((abbreviatedOptionName) => {
     if (optionMap.hasOwnProperty(abbreviatedOptionName)) {
-      const unAbbreviatedOptionName = optionAbbreviationMap[abbreviatedOptionName];
+      if (optionAbbreviationMap.hasOwnProperty(abbreviatedOptionName)) {
+        const unAbbreviatedOptionName = optionAbbreviationMap[abbreviatedOptionName];
 
-      optionMap[unAbbreviatedOptionName] = optionMap[abbreviatedOptionName];
+        optionMap[unAbbreviatedOptionName] = optionMap[abbreviatedOptionName];
 
-      delete optionMap[abbreviatedOptionName];
+        delete optionMap[abbreviatedOptionName];
+      }
     }
   });
 

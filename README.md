@@ -20,7 +20,6 @@ You can also clone the repository with [Git](https://git-scm.com/)...
 
 There is only one function, namely the `parseArgv()` function. It takes the `argv` array and an optional map of abbreviations as its first and second arguments, respectively:
 
-
 ```js
 const argumentative = require('argumentative');
 
@@ -49,6 +48,7 @@ The return value is a plain old JavaScript object with several properties:
 
 * `commands` - The elements of the `argv` array that are not options, which are referred to here as commands.
 
+If you pass a map of abbreviations, any abbreviated option name in the `options` map will be replaced with its corresponding unabbreviated name.
 
 ## Compiling from source
 

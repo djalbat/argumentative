@@ -16,7 +16,7 @@ There are no dependencies to install.
 
 ## Usage
 
-There is only one function, `parseArgv()`. It takes the `argv` array and an optional map of abbreviations as its first and second arguments, respectively:
+There is only one `parseArgv()` function, which takes the `argv` array and an optional map of abbreviations as its first and second arguments, respectively:
 
 ```js
 const argumentative = require('argumentative');
@@ -34,19 +34,34 @@ const { commands, options } = parseArgv(argv, abbreviations);
 ...
 ```
 
-The return value is a plain old JavaScript object with several properties:
+The return value is a plain old JavaScript object with the following properties:
 
 * `interpreterPath` - The first element of the `argv` array. This is fully qualified path of interpreter running the script.
 
 * `filePath` - The second element of the `argv` array. This will be the fully qualified path of the script itself.
 
-* `args` - An array of the remaining arguments, possibly empty if no command line arguments have been passed.
+* `args` - An array of the remaining arguments, possibly empty if no command line arguments were passed.
 
 * `options` - A map of option names to their values.
 
-* `commands` - The elements of the `argv` array that are not options, which are referred to here as commands.
+* `commands` - An array of the elements of the `argv` array that are not options.
 
-If you pass a map of abbreviations, any abbreviated option name in the `options` map will be replaced with its corresponding unabbreviated name. The value corresponding to the abbreviated option takes precedence over the unabbreviated one if both are present, however.
+If you pass a map of abbreviations, any abbreviated option name in the `options` map will be replaced with its corresponding unabbreviated name. The value corresponding to the abbreviated option takes precedence over the unabbreviated one if both are present, however. The examples should help clarify.
+
+## Examples
+
+The command line arguments are given first, followed by the plain old JavaScript object that the `parseArgv()` function returns. Only the `options` and `commands` properties are given.
+
+```js
+install
+
+{
+  'options': {},
+  'commands': [
+    'install'
+  ]
+}
+```
 
 ## Compiling from source
 

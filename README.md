@@ -77,13 +77,13 @@ build -c --file-path=./main.js
 }
 ```
 ```js
-watch --incremental -cf=./index.js --file-path=./main.js
+watch -chf=./index.js --file-path=./main.js
 
 {
   'options': {
+    'help': true,
     'compile': true,
-    'file-path': './index.js',
-    'incremental': true
+    'file-path': './index.js'
   },
   'commands': [
     'watch'
@@ -98,8 +98,7 @@ This last example has the following abbreviations:
   'c': 'compile',
   'f': 'file-path'
 }
-
-
+```
 
 ## Compiling from source
 

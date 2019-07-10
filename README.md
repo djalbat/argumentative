@@ -82,7 +82,7 @@ build -c --file-path=./main.js
 }
 ```
 
-No commands; two shorthand options, the first boolean and the second string-valued; and a full length option, also string-valued:
+No commands; two shorthand options, boolean and string-valued, respectively; and a full length, string-valued option:
 ```js
 -cf=./index.js --file-path=./main.js
 ```

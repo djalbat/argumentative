@@ -8,17 +8,15 @@ You can install Argumentative with [npm](https://www.npmjs.com/):
 
     npm install argumentative
 
-You can also clone the repository with [Git](https://git-scm.com/)...
+You can also clone the repository with [Git](https://git-scm.com/):
 
     git clone https://github.com/djalbat/argumentative.git
 
-...and then install the necessary modules with npm from within the project's root directory:
-
-    npm install
+There are no dependencies to install.
 
 ## Usage
 
-There is only one function, namely the `parseArgv()` function. It takes the `argv` array and an optional map of abbreviations as its first and second arguments, respectively:
+There is only one function, `parseArgv()`. It takes the `argv` array and an optional map of abbreviations as its first and second arguments, respectively:
 
 ```js
 const argumentative = require('argumentative');

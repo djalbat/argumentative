@@ -46,9 +46,7 @@ The return value is a plain old JavaScript object with the following properties:
 
 * `commands` - An array of the elements of the `argv` array that are not options.
 
-If you pass a map of abbreviations, abbreviated option names in the `options` map will be replaced with their corresponding unabbreviated names. If both unabbreviated and abbreviated options are present, the latter are removed.
-
-Finally, note that both commands and unabbreviated options will be converted to camel-case if they contain dashes. Underscores are left as-is.
+If you pass a map of abbreviations, abbreviated option names in the `options` map will be replaced with their corresponding unabbreviated names. If corresponding unabbreviated and abbreviated options are present, the latter are removed. Both commands and unabbreviated options will be converted to camel-case if they contain dashes. Underscores are left as-is.
 
 The examples should help to clarify.
 

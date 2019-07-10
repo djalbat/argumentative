@@ -46,7 +46,7 @@ The return value is a plain old JavaScript object with the following properties:
 
 * `commands` - An array of the elements of the `argv` array that are not options.
 
-If you pass a map of abbreviations, any abbreviated option name in the `options` map will be replaced with its corresponding unabbreviated name. The value corresponding to the abbreviated option takes precedence over the unabbreviated one if both are present, however. The examples should help clarify.
+If you pass a map of abbreviations, abbreviated option names in the `options` map will be replaced with their corresponding unabbreviated names. If both unabbreviated and abbreviated options are present, the latter are removed. The examples should help to clarify.
 
 ## Examples
 
@@ -54,7 +54,8 @@ The command line arguments are given first, followed by the plain old JavaScript
 
 ```js
 install
-
+```
+```js
 {
   'options': {},
   'commands': [
@@ -65,7 +66,8 @@ install
 
 ```js
 build -c --file-path=./main.js
-
+```
+```js
 {
   'options': {
     'c': true,
@@ -78,11 +80,12 @@ build -c --file-path=./main.js
 ```
 ```js
 watch -cf=./index.js --file-path=./main.js
-
+```
+```js
 {
   'options': {
     'compile': true,
-    'file-path': './index.js'
+    'file-path': './main.js'
   },
   'commands': [
     'watch'
@@ -97,6 +100,7 @@ This last example has the following abbreviations:
   'f': 'file-path'
 }
 ```
+Here the abbreviated option abbreviated option name 'c' has been replaced by the corresponding unabbreviated name whilst the abbreviated option 'f' has been removed.
 
 ## Compiling from source
 

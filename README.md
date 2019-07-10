@@ -77,11 +77,10 @@ build -c --file-path=./main.js
 }
 ```
 ```js
-watch -chf=./index.js --file-path=./main.js
+watch -cf=./index.js --file-path=./main.js
 
 {
   'options': {
-    'help': true,
     'compile': true,
     'file-path': './index.js'
   },
@@ -94,7 +93,6 @@ This last example has the following abbreviations:
 
 ```js
 {
-  'h': 'help',
   'c': 'compile',
   'f': 'file-path'
 }

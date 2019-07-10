@@ -50,7 +50,7 @@ If you pass a map of abbreviations, any abbreviated option name in the `options`
 
 ## Examples
 
-The command line arguments are given first, followed by the plain old JavaScript object that the `parseArgv()` function returns. Only the `options` and `commands` properties are given.
+The command line arguments are given first, followed by the plain old JavaScript object that the `parseArgv()` function returns. Only the `options` and `commands` properties are given. These first two examples have no abbreviations.
 
 ```js
 install
@@ -62,6 +62,44 @@ install
   ]
 }
 ```
+
+```js
+build -c --file-path=./main.js
+
+{
+  'options': {
+    'c': true,
+    'file-path': './main.js'
+  },
+  'commands': [
+    'build'
+  ]
+}
+```
+```js
+watch --incremental -cf=./index.js --file-path=./main.js
+
+{
+  'options': {
+    'compile': true,
+    'file-path': './index.js',
+    'incremental': true
+  },
+  'commands': [
+    'watch'
+  ]
+}
+```
+This last example has the following abbreviations:
+
+```js
+{
+  'h': 'help',
+  'c': 'compile',
+  'f': 'file-path'
+}
+
+
 
 ## Compiling from source
 

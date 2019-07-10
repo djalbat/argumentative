@@ -52,6 +52,8 @@ If you pass a map of abbreviations, abbreviated option names in the `options` ma
 
 The command line arguments are given first, followed by the plain old JavaScript object that the `parseArgv()` function returns. Only the `options` and `commands` properties are given. These first two examples have no abbreviations.
 
+A single command; and no options:
+
 ```js
 install
 ```
@@ -64,6 +66,7 @@ install
 }
 ```
 
+A single command; a shorthand, boolean option; and a full length, string-valued option:
 ```js
 build -c --file-path=./main.js
 ```
@@ -78,8 +81,10 @@ build -c --file-path=./main.js
   ]
 }
 ```
+
+No commmands; two shorthand options, the first boolean and the second string valued; and a full length, string-valued option:
 ```js
-watch -cf=./index.js --file-path=./main.js
+-cf=./index.js --file-path=./main.js
 ```
 ```js
 {
@@ -87,12 +92,10 @@ watch -cf=./index.js --file-path=./main.js
     'compile': true,
     'file-path': './main.js'
   },
-  'commands': [
-    'watch'
-  ]
+  'commands': []
 }
 ```
-This last example has the following abbreviations:
+This last example has the following abbreviations...
 
 ```js
 {
@@ -100,7 +103,7 @@ This last example has the following abbreviations:
   'f': 'file-path'
 }
 ```
-Here the abbreviated option abbreviated option name 'c' has been replaced by the corresponding unabbreviated name whilst the abbreviated option 'f' has been removed.
+...hence the abbreviated option name 'c' has been replaced by the corresponding unabbreviated name, whilst the abbreviated option 'f' has been removed algother.
 
 ## Compiling from source
 

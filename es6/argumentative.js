@@ -58,7 +58,7 @@ function parseArgv(argv, abbreviations) {
 
       optionMap[optionName] = optionValue;
     } else {
-		  const command = argument; ///
+		  const command = convertToCamelCase(argument);
 
       commands.push(command);
     }
@@ -80,7 +80,17 @@ function parseArgv(argv, abbreviations) {
     }
   });
 
-	const options = optionMap; ///
+  const optionNames = Object.keys(optionMap),
+        options = optionNames.reduce((options, optionName) => {
+	        const optionValue = optionMap[optionName],
+                camelCaseOptionName = convertToCamelCase(optionName);
+
+          optionName = camelCaseOptionName; ///
+
+          options[optionName] = optionValue;
+
+          return options;
+        }, {});
 
 	return ({
 		args,
@@ -94,3 +104,7 @@ function parseArgv(argv, abbreviations) {
 module.exports = {
   parseArgv
 };
+
+function convertToCamelCase(string) {
+  return string.replace(/-(.)/g, (match, character) => character.toUpperCase());
+}

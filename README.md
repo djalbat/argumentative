@@ -46,7 +46,11 @@ The return value is a plain old JavaScript object with the following properties:
 
 * `commands` - An array of the elements of the `argv` array that are not options.
 
-If you pass a map of abbreviations, abbreviated option names in the `options` map will be replaced with their corresponding unabbreviated names. If both unabbreviated and abbreviated options are present, the latter are removed. The examples should help to clarify.
+If you pass a map of abbreviations, abbreviated option names in the `options` map will be replaced with their corresponding unabbreviated names. If both unabbreviated and abbreviated options are present, the latter are removed.
+
+Finally, note that both commands and unabbreviated options will be converted to camel-case if they contain dashes. Underscores are left as-is.
+
+The examples should help to clarify.
 
 ## Examples
 
@@ -74,13 +78,14 @@ build -c --file-path=./main.js
 {
   'options': {
     'c': true,
-    'file-path': './main.js'
+    'filePath': './main.js'
   },
   'commands': [
     'build'
   ]
 }
 ```
+Note that the `--file-path` option becomes the camel-case `filePath`.
 
 No commands; two shorthand options, boolean and string-valued, respectively; and a full length, string-valued option:
 ```js
@@ -90,12 +95,12 @@ No commands; two shorthand options, boolean and string-valued, respectively; and
 {
   'options': {
     'compile': true,
-    'file-path': './main.js'
+    'filePath': './main.js'
   },
   'commands': []
 }
 ```
-This last example has the following abbreviations...
+This last example has the following abbreviations:
 
 ```js
 {
@@ -103,7 +108,7 @@ This last example has the following abbreviations...
   'f': 'file-path'
 }
 ```
-...hence the abbreviated option name 'c' has been replaced by the corresponding unabbreviated name, whilst the abbreviated option 'f' has been removed algother.
+Note that the abbreviated option name 'c' has been replaced by the corresponding unabbreviated name, whilst the abbreviated option 'f' has been removed altogether.
 
 ## Compiling from source
 

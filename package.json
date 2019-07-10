@@ -1,7 +1,7 @@
 {
   "name": "argumentative",
   "author": "James Smith",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "license": "MIT",
   "homepage": "https://github.com/djalbat/argumentative",
   "description": "Parses the argv array.",

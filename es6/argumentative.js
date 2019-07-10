@@ -10,7 +10,7 @@ function parseArgv(argv, abbreviations) {
 
 	args.forEach((argument) => {  ///
 		const abbreviatedOptions = /^-[^-]+$/.test(argument),
-          unabbreviatedOption = /^--[^-]+$/.test(argument);
+          unabbreviatedOption = /^--[^-].+$/.test(argument);
 
 		if (false) {
 		  ///

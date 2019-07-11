@@ -58,7 +58,7 @@ function parseArgv(argv, abbreviations) {
 
       optionMap[optionName] = optionValue;
     } else {
-		  const command = convertToCamelCase(argument);
+		  const command = toCamelCase(argument);
 
       commands.push(command);
     }
@@ -82,10 +82,9 @@ function parseArgv(argv, abbreviations) {
 
   const optionNames = Object.keys(optionMap),
         options = optionNames.reduce((options, optionName) => {
-	        const optionValue = optionMap[optionName],
-                camelCaseOptionName = convertToCamelCase(optionName);
+	        const optionValue = optionMap[optionName];
 
-          optionName = camelCaseOptionName; ///
+          optionName = toCamelCase(optionName); ///
 
           options[optionName] = optionValue;
 
@@ -105,6 +104,6 @@ module.exports = {
   parseArgv
 };
 
-function convertToCamelCase(string) {
+function toCamelCase(string) {
   return string.replace(/-(.)/g, (match, character) => character.toUpperCase());
 }

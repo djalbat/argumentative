@@ -1,5 +1,9 @@
 'use strict';
 
+const stringUtilities = require('./utilities/string');
+
+const { toCamelCase } = stringUtilities;
+
 function parseArgv(argv, abbreviations) {
 	const interpreterPath = argv[0],
 				filePath = argv[1],
@@ -58,7 +62,7 @@ function parseArgv(argv, abbreviations) {
 
       optionMap[optionName] = optionValue;
     } else {
-		  const command = toCamelCase(argument);
+		  const command = argument; ///
 
       commands.push(command);
     }
@@ -103,7 +107,3 @@ function parseArgv(argv, abbreviations) {
 module.exports = {
   parseArgv
 };
-
-function toCamelCase(string) {
-  return string.replace(/-(.)/g, (match, character) => character.toUpperCase());
-}

@@ -46,9 +46,22 @@ The return value is a plain old JavaScript object with the following properties:
 
 * `commands` - An array of the elements of the `argv` array that are not options.
 
-If you pass a map of abbreviations, abbreviated option names in the `options` map will be replaced with their corresponding unabbreviated names. If corresponding unabbreviated and abbreviated options are present, the latter are removed. Both commands and unabbreviated options will be converted to camel-case if they contain dashes. Underscores are left as-is.
+If you pass a map of abbreviations, abbreviated option names in the `options` map will be replaced with their corresponding unabbreviated names. If corresponding unabbreviated and abbreviated options are present, the latter are removed. Unabbreviated options will always be converted to camel-case if they contain dashes. Underscores are left as-is. If you want to convert commands to camel-case, you can make use of the `toCamelCase()` utility function. For example:
 
-The examples should help to clarify.
+```js
+const argumentative = require('argumentative');
+
+const { stringUtilities } = argumentative,
+      { toCamelCase } = stringUtilities,
+      { argv } = process;
+
+let { commands } = parseArg(argv);
+
+commands = commands.map((command) => toCamelCase(commeand));
+
+...
+```
+Obviously you may only want to convert specific commands in this way rather than all of them, or not do so at all.
 
 ## Examples
 

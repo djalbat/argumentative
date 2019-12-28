@@ -105,5 +105,6 @@ function parseArgv(argv, abbreviations) {
 }
 
 module.exports = {
-  parseArgv
+  parseArgv,
+  stringUtilities
 };

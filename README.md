@@ -46,7 +46,7 @@ The return value is a plain old JavaScript object with the following properties:
 
 * `commands` - An array of the elements of the `argv` array that are not options.
 
-If you pass a map of abbreviations, abbreviated option names in the `options` map will be replaced with their corresponding unabbreviated names. If corresponding unabbreviated and abbreviated options are present, the latter are removed. Unabbreviated options will always be converted to camel-case if they contain dashes. Underscores are left as-is. If you want to convert commands to camel-case, you can make use of the `toCamelCase()` utility function. For example:
+If you pass a map of abbreviations, abbreviated names in the `options` map will be replaced with their corresponding unabbreviated names. If corresponding unabbreviated and abbreviated options are present, the latter are removed. Options in [kebab case](https://wiki.c2.com/?KebabCase) will be converted to [camel case](https://wiki.c2.com/?CamelCase) whereas [snake case](https://en.wikipedia.org/wiki/Snake_case) is left as-is. If you want to convert snake case commands to camel case, by the way, you can make use of the `toCamelCase()` utility function. For example:
 
 ```js
 const argumentative = require('argumentative');
@@ -96,7 +96,7 @@ build -c --file-path=./main.js
   ]
 }
 ```
-Note that the `--file-path` option becomes the camel-case `filePath`.
+Note that the `--file-path` option becomes the camel case `filePath`.
 
 No commands; two shorthand options, boolean and string-valued, respectively; and a full length, string-valued option:
 ```js

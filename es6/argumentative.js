@@ -5,19 +5,19 @@ const stringUtilities = require('./utilities/string');
 const { toCamelCase } = stringUtilities;
 
 function parseArgv(argv, abbreviations) {
-	const interpreterPath = argv[0],
-				filePath = argv[1],
+  const interpreterPath = argv[0],
+        filePath = argv[1],
         args = argv.slice(2),  ///
         commands = [],
         optionMap = {},
         optionAbbreviationMap = abbreviations || {};
 
-	args.forEach((argument) => {  ///
-		const abbreviatedOptions = /^-[^-]+$/.test(argument),
+  args.forEach((argument) => {  ///
+    const abbreviatedOptions = /^-[^-]+$/.test(argument),
           unabbreviatedOption = /^--[^-].+$/.test(argument);
 
-		if (false) {
-		  ///
+    if (false) {
+      ///
     } else if (abbreviatedOptions) {
       const index = argument.indexOf('=');
 
@@ -46,29 +46,29 @@ function parseArgv(argv, abbreviations) {
         });
       }
     } else if (unabbreviatedOption) {
-		  let optionName, optionValue;
+      let optionName, optionValue;
 
-		  const index = argument.indexOf('=');
+      const index = argument.indexOf('=');
 
-		  if (index === -1) {
-		    optionName = argument.substring(2);
+      if (index === -1) {
+        optionName = argument.substring(2);
 
         optionValue = true;
       } else {
-		    optionName = argument.substring(2, index);
+        optionName = argument.substring(2, index);
 
-		    optionValue =  argument.substring(index + 1);
+        optionValue =  argument.substring(index + 1);
       }
 
       optionMap[optionName] = optionValue;
     } else {
-		  const command = argument; ///
+      const command = argument; ///
 
       commands.push(command);
     }
-	});
+  });
 
-	const abbreviatedOptionNames = Object.keys(optionAbbreviationMap);  ///
+  const abbreviatedOptionNames = Object.keys(optionAbbreviationMap);  ///
 
   abbreviatedOptionNames.forEach((abbreviatedOptionName) => {
     if (optionMap.hasOwnProperty(abbreviatedOptionName)) {
@@ -86,7 +86,7 @@ function parseArgv(argv, abbreviations) {
 
   const optionNames = Object.keys(optionMap),
         options = optionNames.reduce((options, optionName) => {
-	        const optionValue = optionMap[optionName];
+          const optionValue = optionMap[optionName];
 
           optionName = toCamelCase(optionName); ///
 
@@ -95,13 +95,13 @@ function parseArgv(argv, abbreviations) {
           return options;
         }, {});
 
-	return ({
-		args,
+  return ({
+    args,
     options,
-		commands,
-		filePath,
-		interpreterPath
-	});
+    commands,
+    filePath,
+    interpreterPath
+  });
 }
 
 module.exports = {

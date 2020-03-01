@@ -123,13 +123,6 @@ This last example has the following abbreviations:
 ```
 Note that the abbreviated option name 'c' has been replaced by the corresponding unabbreviated name, whilst the abbreviated option 'f' has been removed altogether.
 
-## Compiling from source
-
-Automation is done with [npm scripts](https://docs.npmjs.com/misc/scripts), have a look at the `package.json` file. The pertinent commands are:
-
-    npm run build-debug
-    npm run watch-debug
-
 ## Contact
 
 - james.smith@djalbat.com

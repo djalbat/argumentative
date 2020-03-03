@@ -1,3 +1,3 @@
 'use strict';
 
-module.exports = require('./bin/argumentative');
+module.exports = require('./lib/argumentative');

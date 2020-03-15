@@ -16,8 +16,6 @@ There are no dependencies to install.
 
 ## Usage
 
-There is only one `parseArgv()` function, which takes the `argv` array and an optional map of abbreviations as its first and second arguments, respectively:
-
 ```js
 const argumentative = require('argumentative');
 
@@ -33,6 +31,8 @@ const { commands, options } = parseArgv(argv, abbreviations);
 
 ...
 ```
+
+There is only one `parseArgv()` function, which takes the `argv` array and an optional map of abbreviations as its first and second arguments, respectively:
 
 The return value is a plain old JavaScript object with the following properties:
 

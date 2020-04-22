@@ -16,15 +16,15 @@ There are no dependencies to install.
 
 ## Usage
 
-```js
-const argumentative = require('argumentative');
+```
+const argumentative = require("argumentative");
 
 const { argv } = process,
       { parseArgv } = argumentative;
 
 const abbreviations = {
-  'h': 'help',
-  'v': 'version'
+  "h": "help",
+  "v": "version"
 };
 
 const { commands, options } = parseArgv(argv, abbreviations);
@@ -50,8 +50,8 @@ If you pass a map of abbreviations, abbreviated names in the `options` map will 
 
 Options in [kebab case](https://wiki.c2.com/?KebabCase) will be converted to [camel case](https://wiki.c2.com/?CamelCase). On the other hand, [snake case](https://en.wikipedia.org/wiki/Snake_case) is left as-is. If you want to convert snake case commands or options to camel case, by the way, you can make use of the `toCamelCase()` utility function. For example:
 
-```js
-const argumentative = require('argumentative');
+```
+const argumentative = require("argumentative");
 
 const { stringUtilities } = argumentative,
       { toCamelCase } = stringUtilities,
@@ -71,57 +71,57 @@ The command line arguments are given first, followed by the plain old JavaScript
 
 A single command; and no options:
 
-```js
+```
 install
 ```
-```js
+```
 {
-  'options': {},
-  'commands': [
-    'install'
+  "options": {},
+  "commands": [
+    "install"
   ]
 }
 ```
 
 A single command; a shorthand, boolean option; and a full length, string-valued option:
-```js
+```
 build -c --file-path=./main.js
 ```
-```js
+```
 {
-  'options': {
-    'c': true,
-    'filePath': './main.js'
+  "options": {
+    "c": true,
+    "filePath": "./main.js"
   },
-  'commands': [
-    'build'
+  "commands": [
+    "build"
   ]
 }
 ```
 Note that the `--file-path` option becomes the camel case `filePath`.
 
 No commands; two shorthand options, boolean and string-valued, respectively; and a full length, string-valued option:
-```js
+```
 -cf=./index.js --file-path=./main.js
 ```
-```js
+```
 {
-  'options': {
-    'compile': true,
-    'filePath': './main.js'
+  "options": {
+    "compile": true,
+    "filePath": "./main.js"
   },
-  'commands': []
+  "commands": []
 }
 ```
 This last example has the following abbreviations:
 
-```js
+```
 {
-  'c': 'compile',
-  'f': 'file-path'
+  "c": "compile",
+  "f": "file-path"
 }
 ```
-Note that the abbreviated option name 'c' has been replaced by the corresponding unabbreviated name, whilst the abbreviated option 'f' has been removed altogether.
+Note that the abbreviated option name `c` has been replaced by the corresponding unabbreviated name, whilst the abbreviated option `f` has been removed altogether.
 
 ## Contact
 

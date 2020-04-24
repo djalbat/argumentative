@@ -59,7 +59,7 @@ const { stringUtilities } = argumentative,
 
 let { commands } = parseArg(argv);
 
-commands = commands.map((command) => toCamelCase(commeand));
+commands = commands.map((command) => toCamelCase(command));
 
 ...
 ```

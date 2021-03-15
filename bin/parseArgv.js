@@ -102,7 +102,4 @@ function parseArgv(argv, abbreviations = {}) {
   });
 }
 
-module.exports = {
-  parseArgv,
-  stringUtilities
-};
+module.exports = parseArgv;

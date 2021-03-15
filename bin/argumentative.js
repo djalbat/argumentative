@@ -1,19 +1,16 @@
 "use strict";
 
-const stringUtilities = require("./utilities/string");
+const { toCamelCase } = require("./utilities/string");
 
-const { toCamelCase } = stringUtilities;
-
-function parseArgv(argv, abbreviations) {
-  const interpreterPath = argv[0],
-        filePath = argv[1],
-        args = argv.slice(2),  ///
-        commands = [],
+function parseArgv(argv, abbreviations = {}) {
+  const [ interpreterPath, filePath, ...args ] = argv,
+        abbreviationMap = abbreviations, ///
         optionMap = {},
-        optionAbbreviationMap = abbreviations || {};
+        commands = [];
 
-  args.forEach((argument) => {  ///
-    const abbreviatedOptions = /^-[^-]+$/.test(argument),
+  args.forEach((arg) => {
+    const argument = arg, ///
+          abbreviatedOptions = /^-[^-]+$/.test(argument),
           unabbreviatedOption = /^--[^-].+$/.test(argument);
 
     if (false) {
@@ -68,19 +65,20 @@ function parseArgv(argv, abbreviations) {
     }
   });
 
-  const abbreviatedOptionNames = Object.keys(optionAbbreviationMap);  ///
+  const abbreviatedNames = Object.keys(abbreviationMap);  ///
 
-  abbreviatedOptionNames.forEach((abbreviatedOptionName) => {
-    if (optionMap.hasOwnProperty(abbreviatedOptionName)) {
-      const unAbbreviatedOptionName = optionAbbreviationMap[abbreviatedOptionName];
+  abbreviatedNames.forEach((abbreviatedName) => {
+    if (optionMap.hasOwnProperty(abbreviatedName)) {
+      const unAbbreviatedName = abbreviationMap[abbreviatedName],
+            optionName = unAbbreviatedName; ///
 
-      if (optionMap.hasOwnProperty(unAbbreviatedOptionName)) {
+      if (optionMap.hasOwnProperty(optionName)) {
         ///
       } else {
-        optionMap[unAbbreviatedOptionName] = optionMap[abbreviatedOptionName];
+        optionMap[optionName] = optionMap[abbreviatedName];
       }
 
-      delete optionMap[abbreviatedOptionName];
+      delete optionMap[abbreviatedName];
     }
   });
 

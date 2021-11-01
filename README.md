@@ -19,10 +19,9 @@ There are no dependencies to install.
 Aside from some string utilities, there is only one `parseArgv()` function. It takes the `argv` array and an optional map of abbreviations as its first and second arguments, respectively:
 
 ```
-const argumentative = require("argumentative");
+const { parseArgv } = require("argumentative");
 
-const { argv } = process,
-      { parseArgv } = argumentative;
+const { argv } = process;
 
 const abbreviations = {
   "h": "help",

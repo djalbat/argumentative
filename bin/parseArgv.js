@@ -1,6 +1,7 @@
 "use strict";
 
-const { toCamelCase } = require("./utilities/string");
+const { toCamelCase } = require("./utilities/string"),
+      { EQUALS, EMPTY_STRING } = require("./constants");
 
 function parseArgv(argv, abbreviations = {}) {
   const [ interpreterPath, filePath, ...args ] = argv,
@@ -16,10 +17,10 @@ function parseArgv(argv, abbreviations = {}) {
     if (false) {
       ///
     } else if (abbreviatedOptions) {
-      const index = argument.indexOf("=");
+      const index = argument.indexOf(EQUALS);
 
       if (index === -1) {
-        const optionNames = argument.split("");
+        const optionNames = argument.split(EMPTY_STRING);
 
         optionNames.shift();
 
@@ -29,7 +30,7 @@ function parseArgv(argv, abbreviations = {}) {
           optionMap[optionName] = optionValue;
         })
       } else {
-        const optionNames = argument.substring(1, index).split(""),
+        const optionNames = argument.substring(1, index).split(EMPTY_STRING),
               optionNamesLength = optionNames.length,
               lastOptionIndex = optionNamesLength - 1,
               lastOptionValue = argument.substring(index + 1);
@@ -45,7 +46,7 @@ function parseArgv(argv, abbreviations = {}) {
     } else if (unabbreviatedOption) {
       let optionName, optionValue;
 
-      const index = argument.indexOf("=");
+      const index = argument.indexOf(EQUALS);
 
       if (index === -1) {
         optionName = argument.substring(2);

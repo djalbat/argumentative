@@ -1,9 +1,9 @@
 "use strict";
 
 const parseArgv = require("./bin/parseArgv"),
-      stringUtilities = require("./bin/utilities/string");
+      caseUtilities = require("./bin/utilities/case");
 
 module.exports = {
   parseArgv,
-  stringUtilities
+  caseUtilities
 };

@@ -1,6 +1,6 @@
 "use strict";
 
-const { toCamelCase } = require("./utilities/string"),
+const { toCamelCase } = require("./utilities/case"),
       { EQUALS, EMPTY_STRING } = require("./constants");
 
 function parseArgv(argv, abbreviations = {}) {

@@ -47,18 +47,18 @@ The return value is a plain old JavaScript object with the following properties:
 
 If you pass a map of abbreviations, abbreviated names in the `options` map will be replaced with their corresponding unabbreviated names. If corresponding unabbreviated and abbreviated options are present, the latter are removed.
 
-Options in [kebab case](https://wiki.c2.com/?KebabCase) will be converted to [camel case](https://wiki.c2.com/?CamelCase). On the other hand, [snake case](https://en.wikipedia.org/wiki/Snake_case) is left as-is. If you want to convert snake case commands or options to camel case, by the way, you can make use of the `toCamelCase()` utility function. For example:
+Options in [kebab case](https://wiki.c2.com/?KebabCase) will be converted to [camel case](https://wiki.c2.com/?CamelCase). On the other hand, [snake case](https://en.wikipedia.org/wiki/Snake_case) is left as-is. If you want to convert snake case commands or options to camel case, by the way, you can make use of the `snakeCaseToCamelCase()` utility function. For example:
 
 ```
 const argumentative = require("argumentative");
 
 const { stringUtilities } = argumentative,
-      { toCamelCase } = stringUtilities,
+      { snakeCaseToCamelCase } = stringUtilities,
       { argv } = process;
 
 let { commands } = parseArg(argv);
 
-commands = commands.map((command) => toCamelCase(command));
+commands = commands.map((command) => snakeCaseToCamelCase(command));
 
 ...
 ```

@@ -124,4 +124,4 @@ Note that the abbreviated option name `c` has been replaced by the corresponding
 
 ## Contact
 
-- james.smith@djalbat.com
+* james.smith@djalbat.com

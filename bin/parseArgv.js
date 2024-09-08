@@ -1,7 +1,7 @@
 "use strict";
 
 const { EQUALS, EMPTY_STRING } = require("./constants"),
-      { snakeCaseToCamelCase } = require("./utilities/case");
+      { hamburgerCaseToCamelCase } = require("./utilities/case");
 
 function parseArgv(argv, abbreviations = {}) {
   const [ interpreterPath, filePath, ...args ] = argv,
@@ -87,7 +87,7 @@ function parseArgv(argv, abbreviations = {}) {
         options = optionNames.reduce((options, optionName) => {
           const optionValue = optionMap[optionName];
 
-          optionName = snakeCaseToCamelCase(optionName); ///
+          optionName = hamburgerCaseToCamelCase(optionName); ///
 
           options[optionName] = optionValue;
 

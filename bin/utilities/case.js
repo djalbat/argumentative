@@ -1,6 +1,6 @@
 "use strict";
 
-function snakeCaseToCamelCase(string) {
+function hamburgerCaseToCamelCase(string) {
   return string.replace(/-(.)/g, (match, character) => {
     const upperCaseCharacter = character.toUpperCase();
 
@@ -9,5 +9,5 @@ function snakeCaseToCamelCase(string) {
 }
 
 module.exports = {
-  snakeCaseToCamelCase
+  hamburgerCaseToCamelCase
 };

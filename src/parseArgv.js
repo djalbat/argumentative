@@ -1,9 +1,9 @@
 "use strict";
 
-const { EQUALS, EMPTY_STRING } = require("./constants"),
-      { hamburgerCaseToCamelCase } = require("./utilities/case");
+import { EQUALS, EMPTY_STRING } from "./constants";
+import { hamburgerCaseToCamelCase } from "./utilities/case";
 
-function parseArgv(argv, abbreviations = {}) {
+export default function parseArgv(argv, abbreviations = {}) {
   const [ interpreterPath, filePath, ...args ] = argv,
         abbreviationMap = abbreviations, ///
         optionMap = {},
@@ -102,5 +102,3 @@ function parseArgv(argv, abbreviations = {}) {
     interpreterPath
   });
 }
-
-module.exports = parseArgv;

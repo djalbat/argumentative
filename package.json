@@ -1,7 +1,7 @@
 {
   "name": "argumentative",
   "author": "James Smith",
-  "version": "2.0.36",
+  "version": "2.0.37",
   "license": "MIT, Anti-996",
   "homepage": "https://github.com/djalbat/argumentative",
   "description": "Parses the argv array.",
@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@swc/core": "1.13.20",
-    "watchful-cli": "^1.7.56"
+    "watchful-cli": "^1.7.61"
   },
   "scripts": {
     "clean": "rm -rf ./lib",

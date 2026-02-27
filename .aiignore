@@ -8,5 +8,4 @@ package-lock.json
 .swcrc
 .gitignore
 lib
-example.js
 license.txt
